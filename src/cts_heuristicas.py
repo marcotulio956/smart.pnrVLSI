@@ -46,10 +46,9 @@ trocam subárvores e recalculam **apenas os ancestrais** dos nós afetados
 
 Heurísticas de controle
 -----------------------
-`heuristica_c1`, `heuristica_c2`, `heuristica_c3` são apenas **assinaturas**
-(levantam NotImplementedError). O contrato de retorno está documentado em
-cada uma; o runner de experimentos as detecta e as ignora enquanto não
-estiverem implementadas.
+`heuristica_c1`, `heuristica_c2`, `heuristica_c3` implementam os baselines
+geométrico, NN+DME e MMM+DME. O contrato de retorno está documentado em cada
+uma.
 
 ISPD 2009/2010: não há leitor de benchmark aqui. Para usá-lo, basta construir
 `InstanciaCTS` (xy, cargas, raiz) a partir dos arquivos.
@@ -999,7 +998,7 @@ def heuristica_h3(
 
 
 # --------------------------------------------------------------------------- #
-# 7. Heurísticas de controle — APENAS ASSINATURAS (a implementar depois)
+# 7. Heurísticas de controle
 # --------------------------------------------------------------------------- #
 # Contrato comum (para o runner e as células do notebook funcionarem sem mudanças):
 #
@@ -1029,10 +1028,92 @@ def heuristica_c1(inst: InstanciaCTS, delta: float, semente: Optional[int] = Non
     ligados ao centro da região-folha; WL e skew calculados pela geometria fixa
     (sem DME-Embed). Retorna `(None, hist)`.
 
-    Parâmetros sugeridos em kwargs: `profundidade` (D) e se o skew deve ser
-    compensado até ≤ δ por snaking. NÃO IMPLEMENTADA.
+    Parâmetros opcionais: `profundidade` (D; por padrão, suficiente para
+    separar os sinks), e `compensar_skew` (True por padrão). A compensação
+    acrescenta fio serpenteado aos caminhos mais curtos até que o skew seja
+    `≤ delta`.
     """
-    raise NotImplementedError("C1 (H-Tree/X-Tree ajustada) ainda não implementada: ver contrato acima.")
+    t0 = time.perf_counter()
+    if inst.n == 0:
+        raise ValueError("A instância deve conter pelo menos um sink.")
+
+    profundidade = kwargs.get("profundidade")
+    if profundidade is None:
+        profundidade = max(0, int(math.ceil(math.log(inst.n, 4))))
+    profundidade = int(profundidade)
+    if profundidade < 0:
+        raise ValueError("profundidade deve ser não-negativa.")
+    compensar = bool(kwargs.get("compensar_skew", True))
+
+    xy = np.asarray(inst.xy, dtype=float)
+    x0, x1 = float(xy[:, 0].min()), float(xy[:, 0].max())
+    y0, y1 = float(xy[:, 1].min()), float(xy[:, 1].max())
+    arestas: List[float] = []
+    atrasos: List[float] = []
+
+    def construir(ids: np.ndarray, reg, nivel: int, prefixo: float) -> None:
+        rx0, rx1, ry0, ry1 = reg
+        cx, cy = 0.5 * (rx0 + rx1), 0.5 * (ry0 + ry1)
+        if nivel >= profundidade or len(ids) <= 1:
+            for i in ids.tolist():
+                d = abs(float(xy[i, 0]) - cx) + abs(float(xy[i, 1]) - cy)
+                arestas.append(d)
+                atrasos.append(prefixo + d)
+            return
+
+        mx, my = cx, cy
+        grupos = [[] for _ in range(4)]
+        for i in ids.tolist():
+            q = (1 if xy[i, 0] >= mx else 0) + (2 if xy[i, 1] >= my else 0)
+            grupos[q].append(i)
+        regioes = [
+            (rx0, mx, ry0, my), (mx, rx1, ry0, my),
+            (rx0, mx, my, ry1), (mx, rx1, my, ry1),
+        ]
+        grupos_reg = list(zip(grupos, regioes))
+        grupos_reg = [(g, r) for g, r in grupos_reg if g]
+        # If all points fall in one quadrant, a median split guarantees
+        # progress for degenerate or highly clustered coordinates.
+        if len(grupos_reg) == 1:
+            eixo = 0 if (rx1 - rx0) >= (ry1 - ry0) else 1
+            ordem = sorted(ids.tolist(), key=lambda i: (xy[i, eixo], xy[i, 1 - eixo]))
+            meio = max(1, len(ordem) // 2)
+            if eixo == 0:
+                grupos_reg = [
+                    (ordem[:meio], (rx0, mx, ry0, ry1)),
+                    (ordem[meio:], (mx, rx1, ry0, ry1)),
+                ]
+            else:
+                grupos_reg = [
+                    (ordem[:meio], (rx0, rx1, ry0, my)),
+                    (ordem[meio:], (rx0, rx1, my, ry1)),
+                ]
+
+        for grupo, (gx0, gx1, gy0, gy1) in grupos_reg:
+            child_cx, child_cy = 0.5 * (gx0 + gx1), 0.5 * (gy0 + gy1)
+            edge = abs(cx - child_cx) + abs(cy - child_cy)
+            arestas.append(edge)
+            construir(np.asarray(grupo, dtype=int), (gx0, gx1, gy0, gy1),
+                      nivel + 1, prefixo + edge)
+
+    raiz_edge = abs(float(inst.raiz[0]) - 0.5 * (x0 + x1))
+    raiz_edge += abs(float(inst.raiz[1]) - 0.5 * (y0 + y1))
+    arestas.append(raiz_edge)
+    construir(np.arange(inst.n), (x0, x1, y0, y1), 0, raiz_edge)
+
+    bruto = np.asarray(atrasos, dtype=float)
+    max_atraso = float(bruto.max())
+    if compensar and math.isfinite(delta):
+        extra = np.maximum(0.0, max_atraso - float(delta) - bruto)
+    else:
+        extra = np.zeros_like(bruto)
+    wl = float(sum(arestas) + extra.sum())
+    skew = float((bruto + extra).max() - (bruto + extra).min())
+    dt = time.perf_counter() - t0
+    hist = HistoricoCTS(nome="C1", wl=wl, skew=skew, tempo_total=dt,
+                        tempo_melhor=dt, n_iteracoes=1)
+    hist.eventos.append((dt, wl))
+    return None, hist
 
 
 def heuristica_c2(inst: InstanciaCTS, delta: float, semente: Optional[int] = None,
@@ -1043,11 +1124,24 @@ def heuristica_c2(inst: InstanciaCTS, delta: float, semente: Optional[int] = Non
     aleatoriedade) + DME-Embed. Retorna `(ArvoreCTS, hist)`.
 
     Também é usada por `calibrar_delta` com `delta = math.inf` ("sem restrição de
-    skew") para definir δ de cada instância; nesse caso deve devolver uma árvore.
-    Dica: `fusoes_semi_gulosas(..., k_rcl=1, alpha=0.0)` + `ArvoreCTS.de_fusoes`
-    já fornecem a construção; a decisão de reutilizá-las é sua. NÃO IMPLEMENTADA.
+    skew") para definir δ de cada instância; nesse caso devolve uma árvore.
     """
-    raise NotImplementedError("C2 (NN+DME) ainda não implementada: ver contrato acima.")
+    t0 = time.perf_counter()
+    if inst.n == 0:
+        raise ValueError("A instância deve conter pelo menos um sink.")
+    # k_viz=n makes the grid search exact while retaining the scalable
+    # candidate-generation code used by H1.
+    k_viz = max(inst.n, int(kwargs.get("k_viz", inst.n)))
+    fusoes, _, _, _ = fusoes_semi_gulosas(
+        inst.xy[:, 0].tolist(), inst.xy[:, 1].tolist(), [1] * inst.n,
+        inst.cargas.tolist(), inst.n - 1, 1, 0.0,
+        np.random.default_rng(0), k_viz)
+    arv = ArvoreCTS.de_fusoes(inst, delta, fusoes)
+    dt = time.perf_counter() - t0
+    hist = HistoricoCTS(nome="C2", wl=arv.wl(), skew=arv.skew(),
+                        tempo_total=dt, tempo_melhor=dt, n_iteracoes=1)
+    hist.eventos.append((dt, hist.wl))
+    return arv, hist
 
 
 def heuristica_c3(inst: InstanciaCTS, delta: float, semente: Optional[int] = None,
@@ -1055,9 +1149,35 @@ def heuristica_c3(inst: InstanciaCTS, delta: float, semente: Optional[int] = Non
     """
     **C3 – MMM+DME** (Jackson, Srinivasan e Kuh): topologia top-down por
     bipartição recursiva na mediana, alternando eixos x/y, + DME-Embed.
-    Retorna `(ArvoreCTS, hist)`. NÃO IMPLEMENTADA.
+    Retorna `(ArvoreCTS, hist)`.
     """
-    raise NotImplementedError("C3 (MMM+DME) ainda não implementada: ver contrato acima.")
+    t0 = time.perf_counter()
+    if inst.n == 0:
+        raise ValueError("A instância deve conter pelo menos um sink.")
+    eixo_inicial = kwargs.get("eixo_inicial", "x")
+    if eixo_inicial not in ("x", "y"):
+        raise ValueError("eixo_inicial deve ser 'x' ou 'y'.")
+    fusoes: List[Tuple[int, int]] = []
+    xy = np.asarray(inst.xy, dtype=float)
+
+    def particionar(ids: List[int], eixo: int) -> int:
+        if len(ids) == 1:
+            return ids[0]
+        outro = 1 - eixo
+        ordenados = sorted(ids, key=lambda i: (xy[i, eixo], xy[i, outro]))
+        meio = len(ordenados) // 2
+        a = particionar(ordenados[:meio], outro)
+        b = particionar(ordenados[meio:], outro)
+        fusoes.append((a, b))
+        return inst.n + len(fusoes) - 1
+
+    particionar(list(range(inst.n)), 0 if eixo_inicial == "x" else 1)
+    arv = ArvoreCTS.de_fusoes(inst, delta, fusoes)
+    dt = time.perf_counter() - t0
+    hist = HistoricoCTS(nome="C3", wl=arv.wl(), skew=arv.skew(),
+                        tempo_total=dt, tempo_melhor=dt, n_iteracoes=1)
+    hist.eventos.append((dt, hist.wl))
+    return arv, hist
 
 
 FUNCOES_CONTROLE = {"C1": heuristica_c1, "C2": heuristica_c2, "C3": heuristica_c3}
