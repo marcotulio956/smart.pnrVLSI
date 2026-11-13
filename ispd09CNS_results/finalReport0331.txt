@@ -1,0 +1,287 @@
+==== ispd09f11
+-- 04 cpu 14764
+ispd09f11 ispd09f11.res CLR 26.710 (ps) C 100921.966 (s 4235.000 b 51635.000 w 45051.966)(fF) maxNominalSkew 4.712
+-- 06 cpu 3892
+ispd09f11 ispd09f11.res CLR 32.291 (ps) C 87156.965 (s 4235.000 b 47035.800 w 35886.165)(fF) maxNominalSkew 5.166
+-- 07 cpu 733.88
+ispd09f11 ispd09f11.res CLR 86.901 (ps) C 78705.350 (s 4235.000 b 36535.800 w 37934.550)(fF) maxNominalSkew 44.576
+-- 11 cpu 0.2
+ispd09f11 ispd09f11.res CLR 51.940 (ps) C 78910.121 (s 4235.000 b 37375.000 w 37300.121)(fF) maxNominalSkew 9.504
+-- 17 cpu 23358
+ispd09f11 ispd09f11.res CLR 22.306 (ps) C 106084.466 (s 4235.000 b 69520.800 w 32328.666)(fF) maxNominalSkew 6.345
+-- 18 cpu 1113.67
+ERROR slew violation 100.728285109209 at 276.
+ispd09f11 ispd09f11.res CLR 23.573 (ps) C 105213.969 (s 4235.000 b 62215.000 w 38763.969)(fF) maxNominalSkew 10.452
+-- 19 cpu 587.39
+ERROR slew violation 102.642493532352 at 2.
+ERROR slew violation 105.965216545544 at 2.
+ERROR slew violation 102.810160272277 at 2.
+ERROR slew violation 105.232717274981 at 2.
+ispd09f11 ispd09f11.res CLR 42.387 (ps) C 81182.592 (s 4235.000 b 44678.000 w 32269.592)(fF) maxNominalSkew 8.673
+-- 21 cpu 1369.81
+ispd09f11 ispd09f11.res CLR 88.388 (ps) C 87272.216 (s 4235.000 b 42435.000 w 40602.216)(fF) maxNominalSkew 19.039
+-- 24 cpu 1.05
+ispd09f11 ispd09f11.res CLR 77.987 (ps) C 75672.665 (s 4235.000 b 25070.000 w 46367.665)(fF) maxNominalSkew 20.116
+==== ispd09f12
+-- 04 cpu 13934
+ispd09f12 ispd09f12.res CLR 25.728 (ps) C 93189.213 (s 4095.000 b 47955.000 w 41139.213)(fF) maxNominalSkew 4.763
+-- 06 cpu 3944
+ispd09f12 ispd09f12.res CLR 32.173 (ps) C 80796.821 (s 4095.000 b 44275.800 w 32426.021)(fF) maxNominalSkew 5.883
+-- 07 cpu 830.64
+ispd09f12 ispd09f12.res CLR 121.328 (ps) C 75332.894 (s 4095.000 b 35876.600 w 35361.294)(fF) maxNominalSkew 87.857
+-- 11 cpu 0.16
+ispd09f12 ispd09f12.res CLR 80.015 (ps) C 71179.683 (s 4095.000 b 32775.000 w 34309.683)(fF) maxNominalSkew 39.673
+-- 17 cpu 14992
+ispd09f12 ispd09f12.res CLR 22.175 (ps) C 96650.134 (s 4095.000 b 63717.500 w 28837.634)(fF) maxNominalSkew 5.440
+-- 18 cpu 1104.79
+ERROR slew violation 100.051992571809 at 282.
+ERROR slew violation 100.119777672207 at 286.
+ERROR slew violation 100.181906249871 at 290.
+ERROR slew violation 100.23946922383 at 294.
+ERROR slew violation 100.296242887451 at 298.
+ERROR slew violation 100.346647616949 at 302.
+ERROR slew violation 100.401834294684 at 306.
+ERROR slew violation 100.556939968024 at 310.
+ERROR slew violation 100.579565112811 at 314.
+ERROR slew violation 101.612146853381 at 276.
+ERROR slew violation 100.05489556032 at 292.
+ERROR slew violation 100.122048589686 at 296.
+ERROR slew violation 100.184065403667 at 300.
+ERROR slew violation 100.241425131613 at 304.
+ERROR slew violation 100.298056550381 at 308.
+ERROR slew violation 100.346109648097 at 312.
+ERROR slew violation 100.284555884016 at 316.
+ispd09f12 ispd09f12.res CLR 19.140 (ps) C 97720.950 (s 4095.000 b 58075.000 w 35550.950)(fF) maxNominalSkew 9.644
+-- 19 cpu 484.87
+ispd09f12 ispd09f12.res CLR 39.851 (ps) C 75065.180 (s 4095.000 b 41197.000 w 29773.180)(fF) maxNominalSkew 8.824
+-- 21 cpu 1131.43
+ispd09f12 ispd09f12.res CLR 92.173 (ps) C 81441.821 (s 4095.000 b 37835.000 w 39511.821)(fF) maxNominalSkew 26.029
+-- 24 cpu 0.83
+ispd09f12 ispd09f12.res CLR 63.475 (ps) C 64132.140 (s 4095.000 b 20010.000 w 40027.140)(fF) maxNominalSkew 13.995
+==== ispd09f21
+-- 04 cpu 14978
+ispd09f21 ispd09f21.res CLR 30.536 (ps) C 100987.823 (s 3587.000 b 50485.000 w 46915.823)(fF) maxNominalSkew 5.266
+-- 06 cpu 4587
+ispd09f21 ispd09f21.res CLR 34.314 (ps) C 92880.351 (s 3587.000 b 50602.600 w 38690.751)(fF) maxNominalSkew 6.077
+-- 07 cpu 846.5
+ispd09f21 ispd09f21.res CLR 92.053 (ps) C 80807.163 (s 3587.000 b 36865.400 w 40354.763)(fF) maxNominalSkew 48.111
+-- 11 cpu 0.18
+ispd09f21 ispd09f21.res CLR 84.128 (ps) C 81641.024 (s 3587.000 b 37835.000 w 40219.024)(fF) maxNominalSkew 38.833
+-- 17 cpu 26420
+ispd09f21 ispd09f21.res CLR 19.610 (ps) C 108314.313 (s 3587.000 b 71103.400 w 33623.913)(fF) maxNominalSkew 3.199
+-- 18 cpu 1056.29
+ERROR slew violation 101.188333042655 at 246.
+ispd09f21 ispd09f21.res CLR 19.365 (ps) C 106723.687 (s 3587.000 b 63250.000 w 39886.687)(fF) maxNominalSkew 7.183
+-- 19 cpu 696.24
+ispd09f21 ispd09f21.res CLR 42.260 (ps) C 83666.255 (s 3587.000 b 45921.000 w 34158.255)(fF) maxNominalSkew 8.347
+-- 21 cpu 1391.43
+ispd09f21 ispd09f21.res CLR 113.669 (ps) C 91080.474 (s 3587.000 b 44390.000 w 43103.474)(fF) maxNominalSkew 43.285
+-- 24 cpu 0.99
+ispd09f21 ispd09f21.res CLR 83.611 (ps) C 75160.217 (s 3587.000 b 26220.000 w 45353.217)(fF) maxNominalSkew 18.732
+==== ispd09f22
+-- 04 cpu 7189
+ispd09f22 ispd09f22.res CLR 24.505 (ps) C 65457.948 (s 3427.000 b 33925.000 w 28105.948)(fF) maxNominalSkew 3.359
+-- 06 cpu 2005.37
+ispd09f22 ispd09f22.res CLR 30.448 (ps) C 56006.581 (s 3427.000 b 30355.400 w 22224.181)(fF) maxNominalSkew 7.099
+-- 07 cpu 406.15
+ispd09f22 ispd09f22.res CLR 59.541 (ps) C 47965.346 (s 3427.000 b 21868.600 w 22669.746)(fF) maxNominalSkew 26.189
+-- 11 cpu 0.12
+ispd09f22 ispd09f22.res CLR 53.733 (ps) C 48400.754 (s 3427.000 b 21735.000 w 23238.754)(fF) maxNominalSkew 21.597
+-- 17 cpu 9432
+ispd09f22 ispd09f22.res CLR 16.376 (ps) C 68011.242 (s 3427.000 b 45101.100 w 19483.142)(fF) maxNominalSkew 2.965
+-- 18 cpu 571.41
+ispd09f22 ispd09f22.res CLR 21.979 (ps) C 62218.067 (s 3427.000 b 34155.000 w 24636.067)(fF) maxNominalSkew 6.000
+-- 19 cpu 230.29
+ERROR slew violation 101.60530230584 at 2.
+ERROR slew violation 105.019665679934 at 2.
+ERROR slew violation 101.699641869009 at 2.
+ERROR slew violation 104.206755031186 at 2.
+ispd09f22 ispd09f22.res CLR 33.316 (ps) C 49341.435 (s 3427.000 b 26499.000 w 19415.435)(fF) maxNominalSkew 7.773
+-- 21 cpu 595.74
+ispd09f22 ispd09f22.res CLR 98.444 (ps) C 48751.091 (s 3427.000 b 20010.000 w 25314.091)(fF) maxNominalSkew 48.454
+-- 24 cpu 0.39
+ispd09f22 ispd09f22.res CLR 64.794 (ps) C 45193.320 (s 3427.000 b 15525.000 w 26241.320)(fF) maxNominalSkew 20.494
+==== ispd09f31
+-- 04 cpu 40088
+ispd09f31 ispd09f31.res CLR 45.068 (ps) C 183735.035 (s 9555.000 b 82570.000 w 91610.035)(fF) maxNominalSkew 7.564
+-- 06 cpu 17333
+ispd09f31 ispd09f31.res CLR 51.336 (ps) C 203827.343 (s 9555.000 b 119370.000 w 74902.343)(fF) maxNominalSkew 10.867
+-- 07 cpu 2461.13
+ispd09f31 ispd09f31.res CLR 268.069 (ps) C 169766.137 (s 9555.000 b 80043.000 w 80168.137)(fF) maxNominalSkew 212.527
+-- 11 cpu 1.29
+ispd09f31 ispd09f31.res CLR 149.232 (ps) C 167634.557 (s 9555.000 b 77395.000 w 80684.557)(fF) maxNominalSkew 88.652
+-- 17 cpu 3429.22
+ispd09f31 ispd09f31.res CLR 211.985 (ps) C 230938.038 (s 9555.000 b 156778.800 w 64604.238)(fF) maxNominalSkew 187.881
+-- 18 cpu 3565.58
+ERROR slew violation 101.15370760122 at 633.
+ispd09f31 ispd09f31.res CLR 24.595 (ps) C 221196.737 (s 9555.000 b 127765.000 w 83876.737)(fF) maxNominalSkew 10.191
+-- 19 cpu 2341.74
+ispd09f31 ispd09f31.res CLR 55.821 (ps) C 162501.976 (s 9555.000 b 86640.000 w 66306.976)(fF) maxNominalSkew 9.470
+-- 24 cpu 8.13
+ERROR: buffer at (13486928.6883,7901105.2044) overlaps blockage (12600000, 7200000, 13500000, 8100000)
+ERROR: buffer (309->310) overlaps blockage.
+ERROR: buffer at (13486928.6883,9166244.60383) overlaps blockage (12600000, 9000000, 13500000, 9900000)
+ERROR: buffer (311->312) overlaps blockage.
+ERROR: buffer at (13099591.7171,8323361.57506) overlaps blockage (12600000, 8100000, 13500000, 9000000)
+ERROR: buffer (313->314) overlaps blockage.
+ERROR: buffer at (11869371.7171,8323361.57506) overlaps blockage (11700000, 8100000, 12600000, 9000000)
+ERROR: buffer (315->316) overlaps blockage.
+ERROR: buffer at (10639151.7171,8323361.57506) overlaps blockage (9900000, 8100000, 10800000, 9000000)
+ERROR: buffer (317->318) overlaps blockage.
+ERROR: buffer at (10088457.0088,8323361.57506) overlaps blockage (9900000, 8100000, 10800000, 9000000)
+ERROR: buffer (319->320) overlaps blockage.
+ERROR: buffer at (9741240.27486,7440358.30898) overlaps blockage (9000000, 7200000, 9900000, 8100000)
+ERROR: buffer (321->322) overlaps blockage.
+ERROR: buffer at (8511020.27486,7440358.30898) overlaps blockage (8100000, 7200000, 9000000, 8100000)
+ERROR: buffer (323->324) overlaps blockage.
+ERROR: buffer at (7280800.27486,7440358.30898) overlaps blockage (7200000, 7200000, 8100000, 8100000)
+ERROR: buffer (325->326) overlaps blockage.
+ERROR: buffer at (10639151.7171,8323361.57506) overlaps blockage (9900000, 8100000, 10800000, 9000000)
+ERROR: buffer (318->678) overlaps blockage.
+ERROR: buffer at (10639151.7171,8323361.57506) overlaps blockage (9900000, 8100000, 10800000, 9000000)
+ERROR: buffer (678->679) overlaps blockage.
+ERROR: buffer at (10366299.5575,9280729.41552) overlaps blockage (9900000, 9000000, 10800000, 9900000)
+ERROR: buffer (680->681) overlaps blockage.
+ERROR: buffer at (10366299.5575,10510949.4155) overlaps blockage (9900000, 9900000, 10800000, 10800000)
+ERROR: buffer (682->683) overlaps blockage.
+ERROR: buffer at (10366299.5575,10510949.4155) overlaps blockage (9900000, 9900000, 10800000, 10800000)
+ERROR: buffer (683->684) overlaps blockage.
+ERROR: buffer at (11118052.3188,10989416.6542) overlaps blockage (10800000, 10800000, 11700000, 11700000)
+ERROR: buffer (685->686) overlaps blockage.
+ERROR: buffer at (12348272.3188,10989416.6542) overlaps blockage (11700000, 10800000, 12600000, 11700000)
+ERROR: buffer (687->688) overlaps blockage.
+ERROR: buffer at (12348272.3188,9759196.65423) overlaps blockage (11700000, 9000000, 12600000, 9900000)
+ERROR: buffer (689->690) overlaps blockage.
+ERROR: buffer at (12348272.3188,8528976.65423) overlaps blockage (11700000, 8100000, 12600000, 9000000)
+ERROR: buffer (691->692) overlaps blockage.
+ERROR: buffer at (12348272.3188,7298756.65423) overlaps blockage (11700000, 7200000, 12600000, 8100000)
+ERROR: buffer (693->694) overlaps blockage.
+ERROR: buffer at (9255356.39059,10510949.4155) overlaps blockage (9000000, 9900000, 9900000, 10800000)
+ERROR: buffer (887->888) overlaps blockage.
+ERROR: buffer at (8376930.99503,10862744.02) overlaps blockage (8100000, 10800000, 9000000, 11700000)
+ERROR: buffer (889->890) overlaps blockage.
+ERROR: buffer at (8376930.99503,10862744.02) overlaps blockage (8100000, 10800000, 9000000, 11700000)
+ERROR: buffer (890->891) overlaps blockage.
+ERROR: buffer at (8376930.99503,12092964.02) overlaps blockage (8100000, 11700000, 9000000, 12600000)
+ERROR: buffer (892->893) overlaps blockage.
+ERROR: buffer at (8376930.99503,13323184.02) overlaps blockage (8100000, 12600000, 9000000, 13500000)
+ERROR: buffer (894->895) overlaps blockage.
+ERROR: buffer at (9607150.99503,13323184.02) overlaps blockage (9000000, 12600000, 9900000, 13500000)
+ERROR: buffer (896->897) overlaps blockage.
+ERROR: buffer at (10837370.995,13323184.02) overlaps blockage (10800000, 12600000, 11700000, 13500000)
+ERROR: buffer (898->899) overlaps blockage.
+ERROR: buffer at (12067590.995,13323184.02) overlaps blockage (11700000, 12600000, 12600000, 13500000)
+ERROR: buffer (900->901) overlaps blockage.
+ERROR: buffer at (13297810.995,13323184.02) overlaps blockage (12600000, 12600000, 13500000, 13500000)
+ERROR: buffer (902->903) overlaps blockage.
+ERROR: buffer at (7611410.03721,10753895.0285) overlaps blockage (7200000, 9900000, 8100000, 10800000)
+ERROR: buffer (952->953) overlaps blockage.
+ERROR: buffer at (13486928.6883,7901105.2044) overlaps blockage (12600000, 7200000, 13500000, 8100000)
+ERROR: buffer (310->1072) overlaps blockage.
+ispd09f31 ispd09f31.res CLR 115.884 (ps) C 168529.264 (s 9555.000 b 54740.000 w 104234.264)(fF) maxNominalSkew 21.143
+==== ispd09f32
+-- 04 cpu 3565.58
+ispd09f32 ispd09f32.res CLR 36.901 (ps) C 152275.140 (s 6650.000 b 72565.000 w 73060.140)(fF) maxNominalSkew 5.341
+-- 06 cpu 10599
+ispd09f32 ispd09f32.res CLR 40.315 (ps) C 147037.936 (s 6650.000 b 81776.600 w 58611.336)(fF) maxNominalSkew 6.440
+-- 07 cpu 1597.57
+ispd09f32 ispd09f32.res CLR 190.416 (ps) C 130373.487 (s 6650.000 b 60926.200 w 62797.287)(fF) maxNominalSkew 135.807
+-- 11 cpu 1.03
+ispd09f32 ispd09f32.res CLR 139.317 (ps) C 133421.194 (s 6650.000 b 63365.000 w 63406.194)(fF) maxNominalSkew 74.081
+-- 18 cpu 2888.24
+ispd09f32 ispd09f32.res CLR 18.418 (ps) C 170803.737 (s 6650.000 b 101545.000 w 62608.737)(fF) maxNominalSkew 7.678
+-- 19 cpu 1384.23
+ispd09f32 ispd09f32.res CLR 53.362 (ps) C 127771.814 (s 6650.000 b 69881.000 w 51240.814)(fF) maxNominalSkew 8.501
+-- 21 cpu 3841
+ispd09f32 ispd09f32.res CLR 162.879 (ps) C 156461.447 (s 6650.000 b 69690.000 w 80121.447)(fF) maxNominalSkew 65.090
+-- 24 cpu 3.16
+ispd09f32 ispd09f32.res CLR 120.693 (ps) C 121866.339 (s 6650.000 b 41630.000 w 73586.339)(fF) maxNominalSkew 42.048
+==== ispd09fnb1
+-- 06 cpu 477.37
+ispd09fnb1 ispd09fnb1.res CLR 19.835 (ps) C 26501.154 (s 5919.000 b 13340.000 w 7242.154)(fF) maxNominalSkew 7.228
+-- 07 cpu 895.33
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ERROR: buffer at (657547,0) overlaps blockage (601680, 0, 720130, 417240)
+ERROR: buffer (W1_A_i0->INBUF76) overlaps blockage.
+ispd09fnb1 ispd09fnb1.res CLR 40.455 (ps) C 27256.620 (s 5919.000 b 13134.200 w 8203.420)(fF) maxNominalSkew 25.977
+-- 11 cpu 0.31
+ispd09fnb1 ispd09fnb1.res CLR 39.291 (ps) C 22753.295 (s 5919.000 b 8625.000 w 8209.295)(fF) maxNominalSkew 23.733
+-- 18 cpu 745.36
+ispd09fnb1 ispd09fnb1.res CLR 22.839 (ps) C 37793.715 (s 5919.000 b 15295.000 w 16579.715)(fF) maxNominalSkew 4.219
+-- 19 cpu 255.24
+ispd09fnb1 ispd09fnb1.res CLR 25.531 (ps) C 28055.333 (s 5919.000 b 14406.000 w 7730.333)(fF) maxNominalSkew 5.765
+-- 21 cpu 1506.65
+ERROR cap violation 71017.08276 > 42000 
+ispd09fnb1 ispd09fnb1.res CLR 44.099 (ps) C 71017.083 (s 5919.000 b 54510.000 w 10588.083)(fF) maxNominalSkew 23.634
+-- 24 cpu 0.71
+ERROR: buffer at (1585275,1064393.46209) overlaps blockage (1554110, 991800, 1725000, 1169640)
+ERROR: buffer (424->425) overlaps blockage.
+ERROR: buffer at (1332850,655177.619118) overlaps blockage (1322960, 558600, 1348720, 772920)
+ERROR: buffer (489->490) overlaps blockage.
+ERROR: buffer at (1613203.79416,1011845) overlaps blockage (1554110, 991800, 1725000, 1169640)
+ERROR: buffer (807->808) overlaps blockage.
+ERROR: buffer at (2082777.90886,1146365) overlaps blockage (2051140, 1055640, 2112320, 1190160)
+ERROR: buffer (832->833) overlaps blockage.
+ERROR: buffer at (627985.043276,920645) overlaps blockage (614100, 807120, 633420, 1171920)
+ERROR: buffer (858->859) overlaps blockage.
+ERROR: buffer at (1617661.855,1130405) overlaps blockage (1554110, 991800, 1725000, 1169640)
+ERROR: buffer (875->876) overlaps blockage.
+ERROR: buffer at (1546063.89367,977117.879418) overlaps blockage (1528350, 902880, 1554110, 1096680)
+ERROR: buffer (914->915) overlaps blockage.
+ERROR: buffer at (1306860,620966.820495) overlaps blockage (1283630, 528960, 1309390, 743280)
+ERROR: buffer (918->919) overlaps blockage.
+ERROR: buffer at (1739057.97572,1123565) overlaps blockage (1735120, 959880, 1760880, 1153680)
+ERROR: buffer (982->983) overlaps blockage.
+ERROR: buffer at (1268028.1148,564303.664252) overlaps blockage (1249820, 544920, 1275580, 759240)
+ERROR: buffer (986->987) overlaps blockage.
+ERROR: buffer at (688571.955639,936307.381288) overlaps blockage (674360, 811680, 693680, 1176480)
+ERROR: buffer (1008->1009) overlaps blockage.
+ERROR: buffer at (2268260,1282452.06711) overlaps blockage (1034770, 1222080, 2411550, 2120400)
+ERROR: buffer (1029->1030) overlaps blockage.
+ERROR: buffer at (1750594.26404,526205) overlaps blockage (1733510, 373920, 1752830, 715920)
+ERROR: buffer (1031->1032) overlaps blockage.
+ERROR: buffer at (1286329.77693,558978.20985) overlaps blockage (1283630, 528960, 1309390, 743280)
+ERROR: buffer (1088->1089) overlaps blockage.
+ERROR: buffer at (1286329.77693,558978.20985) overlaps blockage (1283630, 528960, 1309390, 743280)
+ERROR: buffer (1089->1090) overlaps blockage.
+ERROR: buffer at (1286329.77693,558978.20985) overlaps blockage (1283630, 528960, 1309390, 743280)
+ERROR: buffer (1090->1136) overlaps blockage.
+ERROR: buffer at (1286329.77693,558978.20985) overlaps blockage (1283630, 528960, 1309390, 743280)
+ERROR: buffer (1136->1154) overlaps blockage.
+ERROR: buffer at (1286329.77693,558978.20985) overlaps blockage (1283630, 528960, 1309390, 743280)
+ERROR: buffer (1154->1161) overlaps blockage.
+ERROR: buffer at (1398355.70592,510245) overlaps blockage (1395410, 497040, 1421170, 711360)
+ERROR: buffer (1246->1247) overlaps blockage.
+ERROR: buffer at (1931655,744683.680414) overlaps blockage (1922800, 437760, 1942120, 779760)
+ERROR: buffer (1294->1295) overlaps blockage.
+ERROR cap violation 96267.4443803727 > 42000 
+ispd09fnb1 ispd09fnb1.res CLR 58.367 (ps) C 96267.444 (s 5919.000 b 29670.000 w 60678.444)(fF) maxNominalSkew 30.272
