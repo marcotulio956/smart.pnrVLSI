@@ -92,6 +92,7 @@ PARAMS_PADRAO: Dict[str, object] = dict(
     busca_focada=True,
     max_foco=64,
     max_passadas_foco=2,
+    portfolio_inicial=True,
 )
 
 
@@ -941,12 +942,14 @@ def heuristica_h3(
     frac_fragmento: Tuple[float, float] = (0.02, 0.10), max_fusoes: int = 200,
     busca_focada: bool = True, max_foco: int = 64, max_passadas_foco: int = 2,
     vizinhos_busca: int = 6, raio_arvore: int = 3, incluir_folhas: bool = False,
+    portfolio_inicial: bool = True,
 ) -> Tuple[ArvoreCTS, HistoricoCTS]:
     """
-    **H3 – ILS/SA-CTS** (Algoritmo 3). Parte de uma árvore H1; a cada iteração:
-    destroy (fragmento contíguo da sequência de fusões) → repair (semi-guloso
-    restrito, reaproveitando índices) → BuscaLocal → aceitação de Metropolis
-    sobre WL. Guarda a melhor árvore vista.
+    **H3 – ILS/SA-CTS** (Algoritmo 3). Parte de uma carteira de árvores (H1 e,
+    por padrão, os controles C2/C3); a cada iteração: destroy (fragmento
+    contíguo da sequência de fusões) → repair (semi-guloso restrito,
+    reaproveitando índices) → BuscaLocal → aceitação de Metropolis sobre WL.
+    Guarda a melhor árvore vista.
 
     Pontos de escala/implementação (ver docstring do módulo):
     - `busca_focada=True`: a BuscaLocal examina só pares que envolvem os nós
@@ -961,12 +964,31 @@ def heuristica_h3(
     alpha_ef = _alpha_efetivo(inst, alpha)
     h = HistoricoCTS(nome="H3")
 
-    T = construir_h1(inst, delta, k_rcl, alpha, k_viz, rng)
+    candidatos = [construir_h1(inst, delta, k_rcl, alpha, k_viz, rng)]
+    if portfolio_inicial and inst.n >= 2:
+        # A carteira avoids spending the entire budget repairing a poor H1
+        # incumbent. These calls are deterministic and preserve H3's
+        # stochastic perturbation after initialization.
+        c2, _ = heuristica_c2(inst, delta)
+        c3, _ = heuristica_c3(inst, delta)
+        candidatos.extend(x for x in (c2, c3) if x is not None)
+    T = min(candidatos, key=lambda x: x.wl())
     wl_T = T.wl()
-    melhor, melhor_wl = T, wl_T
+    melhor, melhor_wl = T.copiar(), wl_T
     h.eventos.append((time.perf_counter() - t0, wl_T))
     theta0 = max(theta0_rel * wl_T, 1e-12)
     theta = theta0
+
+    # Improve the incumbent before applying a destroy/repair move. This is
+    # bounded by the same budget and cannot worsen the current WL.
+    busca_local(
+        T, rng, t_fim, None, vizinhos_busca, raio_arvore, incluir_folhas,
+        callback=lambda wl: h.eventos.append((time.perf_counter() - t0, wl)),
+    )
+    T.reordenar_sequencia()
+    wl_T = T.wl()
+    if wl_T < melhor_wl - TOL * max(1.0, melhor_wl):
+        melhor, melhor_wl = T.copiar(), wl_T
 
     while time.perf_counter() < t_fim and inst.n >= 4:
         agora = time.perf_counter() - t0
@@ -1245,7 +1267,7 @@ def executar_heuristica(nome: str, inst: InstanciaCTS, delta: float, semente: in
             inst, delta, t_max, semente, p["k_rcl"], p["alpha"], p["k_viz"], p["theta0_rel"],
             p["theta_final_rel"], p["taxa_resfriamento"], p["frac_fragmento"], p["max_fusoes"],
             p["busca_focada"], p["max_foco"], p["max_passadas_foco"], p["vizinhos_busca"],
-            p["raio_arvore"], p["incluir_folhas"])
+            p["raio_arvore"], p["incluir_folhas"], p["portfolio_inicial"])
     elif nome in FUNCOES_CONTROLE:
         kw = (params or {}).get(nome, {})
         arv, h = FUNCOES_CONTROLE[nome](inst, delta, semente=semente, **kw)
